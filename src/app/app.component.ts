@@ -1,5 +1,4 @@
 import { Component, HostBinding } from '@angular/core';
-import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import ArrayStore from 'devextreme/data/array_store';
 import { Product, Service } from './app.service';
 import { DxSelectBoxTypes } from 'devextreme-angular/ui/select-box';
@@ -16,11 +15,8 @@ export class AppComponent  {
   products: Product[];
 
   data: ArrayStore;
-  @HostBinding('class') get getClass() {
-    return Object.keys(this.screen.sizes).filter(cl => this.screen.sizes[cl]).join(' ');
-  }
 
-  constructor(private authService: AuthService, private screen: ScreenService, public appInfo: AppInfoService ) {
+  constructor( ) {
     var service = new Service();
     this.products = service.getProducts();
     this.simpleProducts = service.getSimpleProducts();
@@ -32,8 +28,5 @@ export class AppComponent  {
 
    onValueChanged({ value }: DxSelectBoxTypes.ValueChangedEvent) {
     notify(`The value is changed to: "${value}"`);
-  }
-  isAuthenticated() {
-    return this.authService.loggedIn;
   }
 }
