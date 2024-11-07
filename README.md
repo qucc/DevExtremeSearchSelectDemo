@@ -31,3 +31,6 @@
             return new HttpContent(mimeType, bytes);
         }
 ```
+# screenshots
+![screenshot_demo_1](screenshot_demo_1.gif)
+![screenshot_demo_2](screenshot_demo_2.gif)
